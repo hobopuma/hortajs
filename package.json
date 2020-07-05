@@ -1,0 +1,55 @@
+{
+  "name": "horta-js",
+  "version": "0.0.4-SNAPSHOT",
+  "description": "functional untilities for javascript partially inspired by Scala 'option' type",
+  "repository": "git@ghe.coxautoinc.com:Analytics-Reporting/option-js.git",
+  "author": "Jonathan Phillips <jonathan.phillips@coxautoinc.com>",
+  "license": "MIT",
+  "private": false,
+  "type": "module",
+  "exports": {
+    "./src/": "./src/"
+  },
+  "files": [
+    "src/collection.js",
+    "src/functional.js",
+    "src/misc.js",
+    "src/share.js"
+  ],
+  "scripts": {
+    "clean": "rm -rf web_modules; rm -rf lib",
+    "build:jenkins": "yarn setup && yarn lint && :",
+    "app": "yarn esw & yarn bab & serve -l 8080",
+    "bab": "babel src --out-dir lib -s -w --verbose --ignore src/collection.js,src/functional.js,src/misc.js --copy-files",
+    "setup": "yarn install --pure-lockfile",
+    "lint": "yarn lint:es",
+    "lint:es": "eslint -f pretty --env browser --max-warnings 0 --ext .jsx,.js .",
+    "esw": "esw -w --color -f pretty --ext .jsx,.js .",
+    "prepare": "snowpack"
+  },
+  "dependencies": {
+    "@elastic/numeral": "^2.4.0",
+    "fast-memoize": "^2.5.1",
+    "moment": "^2.24.0",
+    "preact": "^10.3.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.4",
+    "@babel/plugin-transform-react-jsx": "^7.8.3",
+    "analytics-dev-tools": "^1.1.4-SNAPSHOT-dac75689b568db7eabc7ec308fe733e8ebac9078",
+    "babel-eslint": "^10.0.3",
+    "babel-plugin-module-resolver": "^4.0.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-formatter-pretty": "^3.0.1",
+    "eslint-plugin-immutable": "^1.0.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.18.3",
+    "eslint-plugin-react-hooks": "^2.4.0",
+    "eslint-watch": "^6.0.1",
+    "serve": "^11.3.0",
+    "snowpack": "^1.4.0"
+  }
+}
