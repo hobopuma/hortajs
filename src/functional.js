@@ -13,6 +13,6 @@ const cond = (...cs) => seqn((
     cs.length < 2 ? r : (r ? cond(a) : cond(...rest))
 ));
 
-const when = (t, ...fs) => cond(t, seqn(...fs));
+const when = (t, ...fs) => cond(t, () => seqn(...fs));
 
 export { seqn, cond, when };

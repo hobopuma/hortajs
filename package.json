@@ -13,7 +13,8 @@
     "src/collection.js",
     "src/functional.js",
     "src/misc.js",
-    "src/share.js"
+    "src/share.js",
+    "src/time.js"
   ],
   "repository": {
     "type": "git",
