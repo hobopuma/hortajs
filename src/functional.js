@@ -7,10 +7,10 @@ const seqn = (...fs) => fs.reduce((a, f) => (typeof f === 'function' ? f() : f),
 // conditionals
 
 const cond = (...cs) => seqn((
-    [t, a, ...rest] = cs,
-    r = (typeof t === 'function' ? t() : t)
+  [t, a, ...rest] = cs,
+  r = (typeof t === 'function' ? t() : t)
 ) => (
-    cs.length < 2 ? r : (r ? cond(a) : cond(...rest))
+  cs.length < 2 ? r : (r ? cond(a) : cond(...rest))
 ));
 
 const when = (t, ...fs) => cond(t, () => seqn(...fs));
