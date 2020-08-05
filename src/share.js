@@ -1,4 +1,4 @@
-import { cond } from './functional.js';
+import { seqn, cond } from './functional.js';
 import { isObj, map } from './collection.js';
 
 // recursively use shared memory
